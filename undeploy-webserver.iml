@@ -1,0 +1,13 @@
+- name: Undeploy Web Server
+  hosts: 'VM2:VM3'
+  become: 'yes'
+  tasks:
+    - name: Stop and disable Apache
+      systemd:
+        name: apache2
+        enabled: 'no'
+        state: stopped
+    - name: Remove the index.html file
+      file:
+        path: /var/www/html/index.html
+        state: absent
