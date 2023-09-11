@@ -1,0 +1,20 @@
+---
+- name: Deploy Web Server
+  hosts: VM2:VM3
+  become: yes
+  tasks:
+    - name: Install Apache web server (APT)
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start and enable Apache (systemd)
+      systemd:
+        name: apache2
+        enabled: yes
+        state: started
+
+    - name: Create the index.html file
+      copy:
+        content: "Hello World from SJSU-{{id }}"
+        dest: /var/www/html/index.html
