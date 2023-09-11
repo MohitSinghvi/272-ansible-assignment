@@ -5,10 +5,13 @@ Using Ansible on VM1, Deploy Web Servers on VM2 and VM3 to display "Hello World 
 Also, provide a way to un-deploy the web server on both VMs through Ansible
 
 Playbook to install deploy and start the web servers on VM2 and VM3: webserver.yml
+<br>
 Host file for IP: inventory.ini
+<br>
 Command to execute the playbook: ansible-playbook -i inventory.ini webserver.yml
-
+<br>
 Playbook to un-deploy the webservers: undeploy-webserver.iml
+<br>
 Command to execute the playbook: ansible-playbook -i inventory.ini undeploy-webserver.yml
 
 
